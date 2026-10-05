@@ -141,6 +141,62 @@ h2{font-size:clamp(2rem,4.8vw,3.9rem);line-height:1.08;letter-spacing:-.04em;fon
 [data-reveal]{opacity:0;transform:translateY(28px);filter:blur(6px);transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease);transition-delay:var(--d,0s)}
 [data-reveal].in{opacity:1;transform:none;filter:none}
 
+/* kit */
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+.kit{border-top:1px solid var(--rule);position:relative;overflow:hidden}
+.kit::before{content:"";position:absolute;width:70vmax;height:70vmax;right:-30vmax;top:-20vmax;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--em) 12%,transparent),transparent);pointer-events:none}
+.kit .wrap{position:relative}
+.kit-head{display:grid;gap:1.3rem;max-width:52rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.kit-head h2{max-width:20ch}
+.kit-head h2 em{font-style:normal;color:var(--em-text)}
+.kit-head p.intro{color:var(--muted);max-width:36rem}
+.kit-card{position:relative;border-radius:24px;padding:1px;background:conic-gradient(from var(--ang),transparent 0 55%,var(--em) 72%,transparent 88%),linear-gradient(var(--rule),var(--rule));animation:spin 7s linear infinite;box-shadow:0 40px 100px -50px color-mix(in srgb,var(--em) 55%,transparent)}
+@keyframes spin{to{--ang:360deg}}
+.kit-in{display:grid;border-radius:23px;background:var(--bg);overflow:hidden}
+@media (min-width:980px){.kit-in{grid-template-columns:7fr 5fr}}
+.compare{padding:clamp(1.6rem,4vw,3.2rem)}
+.compare h3,.offer h3{font-size:1rem;font-weight:500;letter-spacing:0}
+.items{margin-top:1.4rem;border-top:1px solid var(--rule)}
+.items li{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;padding:1.05rem 0;border-bottom:1px solid var(--rule)}
+.items .ck{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:color-mix(in srgb,var(--em) 16%,transparent);color:var(--em-text)}
+.items .ck svg{width:13px;height:13px}
+.items b{display:block;font-weight:400;font-size:1.12rem;letter-spacing:-.01em;line-height:1.3}
+.items small{display:block;color:var(--muted);font-size:.9rem;line-height:1.45;margin-top:.15rem}
+.items .p{font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap;font-size:1rem}
+.bars{margin-top:2.2rem;display:grid;gap:1.1rem}
+.bars .row{display:grid;gap:.45rem}
+.bars .lab{display:flex;justify-content:space-between;gap:1rem;font-size:.95rem}
+.bars .lab span:last-child{font-variant-numeric:tabular-nums}
+.bars .track{height:12px;border-radius:999px;background:var(--soft);overflow:hidden}
+.bars .fill{display:block;height:100%;width:0;border-radius:inherit;transition:width 1.6s var(--ease)}
+.bars .sep .fill{background:color-mix(in srgb,var(--ink) 28%,transparent)}
+.bars .kitb .fill{position:relative;background:var(--em);box-shadow:0 0 18px color-mix(in srgb,var(--em) 60%,transparent);transition-delay:.35s}
+.bars .kitb .fill::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);background-size:40% 100%;background-repeat:no-repeat;animation:flow 2.4s linear infinite}
+@keyframes flow{from{background-position:-40% 0}to{background-position:140% 0}}
+.bars.in .sep .fill{width:100%}
+.bars.in .kitb .fill{width:83.48%}
+.bars .kitb .lab{color:var(--em-text);font-weight:500}
+.bars .saved{display:flex;align-items:center;gap:.6rem;margin-top:.2rem;color:var(--muted);font-size:.92rem}
+.bars .saved i{flex:none;width:16.52%;height:2px;margin-left:auto;background:repeating-linear-gradient(90deg,var(--em) 0 6px,transparent 6px 10px)}
+.offer{position:relative;display:flex;flex-direction:column;justify-content:center;padding:clamp(1.8rem,4vw,3.2rem);background:var(--soft);border-top:1px solid var(--rule)}
+@media (min-width:980px){.offer{border-top:0;border-left:1px solid var(--rule)}}
+.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:.5rem;padding:.42rem .85rem;border-radius:999px;background:var(--em);color:var(--on-em);font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;animation:pulse 2.6s var(--ease) infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--em) 55%,transparent)}60%{box-shadow:0 0 0 12px transparent}}
+.offer .from{margin-top:1.6rem;color:var(--muted);font-size:1.05rem}
+.offer .from s{text-decoration-color:color-mix(in srgb,#E5484D 80%,transparent);text-decoration-thickness:2px}
+.offer .price{display:block;margin-top:.2rem;font-size:clamp(3.2rem,7vw,5.2rem);line-height:1;letter-spacing:-.05em;font-weight:300;font-variant-numeric:tabular-nums;white-space:nowrap}
+.offer .terms{margin-top:.8rem;color:var(--muted);font-size:.98rem}
+.offer .terms strong{color:var(--ink);font-weight:500}
+.offer .btn{margin-top:1.8rem;align-self:flex-start}
+.offer .fine{margin-top:.9rem;color:var(--muted);font-size:.88rem}
+.journey{display:grid;gap:1.6rem;margin-top:clamp(2.5rem,5vw,4rem)}
+@media (min-width:860px){.journey{grid-template-columns:repeat(3,1fr);gap:2.5rem}}
+.journey li{padding-top:1.1rem;border-top:1px solid var(--rule)}
+.journey .mono{color:var(--em-text)}
+.journey h3{margin-top:.5rem;font-size:1.3rem;font-weight:400;letter-spacing:-.02em;line-height:1.3}
+.journey p{margin-top:.4rem;color:var(--muted);font-size:1rem;line-height:1.6}
+.hint a{color:var(--em-text)}
+
 /* servicos */
 .group+.group{margin-top:3.2rem}
 .glabel{display:flex;justify-content:space-between;color:var(--muted);padding-bottom:.9rem;border-bottom:1px solid var(--rule)}
@@ -273,6 +329,7 @@ footer .brand{font-size:1.1rem;color:var(--ink)}
       <span>agilize<b>web</b></span>
     </a>
     <nav class="nav" aria-label="Principal">
+      <a href="#kit">Kit</a>
       <a href="#servicos">Serviços</a>
       <a href="#portfolio">Portfólio</a>
       <a href="#como-funciona">Como funciona</a>
@@ -316,15 +373,64 @@ footer .brand{font-size:1.1rem;color:var(--ink)}
     </div>
   </section>
 
+  <section id="kit" class="kit">
+    <div class="wrap">
+      <div class="kit-head sechead">
+        <p class="eyebrow mono" data-reveal data-scramble>01 / Kit Comércio no Mapa</p>
+        <h2 data-reveal style="--d:.08s">Os três serviços do Google juntos, <em>por R$ 549,90.</em></h2>
+        <p class="intro" data-reveal style="--d:.16s">Tudo o que o seu comércio precisa para ser encontrado no Google, receber chamadas no WhatsApp e juntar avaliações. Saindo bem mais barato do que contratar um por um.</p>
+      </div>
+
+      <div class="kit-card" data-reveal>
+        <div class="kit-in">
+          <div class="compare">
+            <h3>O que vem no kit</h3>
+            <ul class="items">
+              <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Otimização do Perfil do Google</b><small>Categorias, serviços, fotos, horários e descrição completos.</small></span><span class="p">R$ 179,90</span></li>
+              <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Bio site para o Google</b><small>Página com WhatsApp, localização, serviços e redes, ligada ao Perfil.</small></span><span class="p">R$ 399,00</span></li>
+              <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Placa de avaliação</b><small>QR code para o cliente avaliar você no Google em segundos.</small></span><span class="p">R$ 79,90</span></li>
+            </ul>
+            <div class="bars" data-reveal role="img" aria-label="Comparação: comprando separado, R$ 658,70. No kit, R$ 549,90. Economia de R$ 108,80.">
+              <div class="row sep">
+                <div class="lab"><span>Comprando separado</span><span>R$ 658,70</span></div>
+                <div class="track"><span class="fill"></span></div>
+              </div>
+              <div class="row kitb">
+                <div class="lab"><span>No kit</span><span>R$ 549,90</span></div>
+                <div class="track"><span class="fill"></span></div>
+              </div>
+              <p class="saved">Fica com você: R$ 108,80<i aria-hidden="true"></i></p>
+            </div>
+          </div>
+
+          <div class="offer">
+            <span class="badge">Economize R$ 108,80</span>
+            <p class="from">De <s>R$ 658,70</s> por</p>
+            <span class="price" data-count="549.90" data-reveal>R$ 549,90</span>
+            <p class="terms"><strong>Pagamento único.</strong> Sem mensalidade.</p>
+            <a class="btn" data-magnetic href="#contato" data-wa="Olá! Quero o Kit Comércio no Mapa (Otimização do Perfil + Bio site + Placa de avaliação) por R$ 549,90.">Quero o kit <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <p class="fine">Você fala direto com a gente pelo WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+
+      <ol class="journey">
+        <li data-reveal><span class="mono">01 · Otimização do Perfil</span><h3>O cliente encontra você</h3><p>Com o Perfil completo, o seu comércio aparece quando alguém procura o que você vende na região.</p></li>
+        <li data-reveal style="--d:.1s"><span class="mono">02 · Bio site</span><h3>O cliente chama no WhatsApp</h3><p>Um toque no link do Perfil e ele vê seus serviços, o endereço e o botão de conversa.</p></li>
+        <li data-reveal style="--d:.2s"><span class="mono">03 · Placa de avaliação</span><h3>As avaliações trazem os próximos</h3><p>Quem foi atendido avalia na hora pelo QR code, e o seu Perfil ganha força no Google.</p></li>
+      </ol>
+    </div>
+  </section>
+
   <section id="servicos" style="border-top:1px solid var(--rule)">
     <div class="wrap split">
       <div class="sticky sechead">
-        <p class="eyebrow mono" data-reveal data-scramble>01 / Serviços</p>
+        <p class="eyebrow mono" data-reveal data-scramble>02 / Serviços</p>
         <h2 data-reveal style="--d:.08s">Serviços e valores</h2>
         <p class="intro" data-reveal style="--d:.16s">Comece pelo que faz mais falta hoje. Cada serviço funciona sozinho, e você adiciona os outros quando quiser.</p>
       </div>
       <div>
-        <p class="hint" data-reveal>Toque em um serviço para pedir pelo WhatsApp.</p>
+        <p class="hint" data-reveal>Toque em um serviço para pedir pelo WhatsApp. Quer os três do Google? <a href="#kit">No kit sai por R$ 549,90.</a></p>
         <div class="group">
           <p class="glabel" data-reveal><span>Google Meu Negócio</span><span class="mono">03</span></p>
           <a class="svc" data-reveal href="#contato" data-wa="Olá! Quero contratar: Placa de avaliação (R$ 79,90)." aria-label="Pedir Placa de avaliação, R$ 79,90">
@@ -359,7 +465,7 @@ footer .brand{font-size:1.1rem;color:var(--ink)}
     <div class="wrap">
       <div class="work-head">
         <div class="sechead">
-          <p class="eyebrow mono" data-reveal data-scramble>02 / Portfólio</p>
+          <p class="eyebrow mono" data-reveal data-scramble>03 / Portfólio</p>
           <h2 data-reveal style="--d:.08s">Negócios que já estão no ar</h2>
         </div>
         <p data-reveal style="--d:.16s">Sites que entregamos para clientes reais. Clique para abrir e navegar em cada um.</p>
@@ -420,7 +526,7 @@ footer .brand{font-size:1.1rem;color:var(--ink)}
   <section id="como-funciona">
     <div class="wrap">
       <div class="sechead">
-        <p class="eyebrow mono" data-reveal data-scramble>03 / Processo</p>
+        <p class="eyebrow mono" data-reveal data-scramble>04 / Processo</p>
         <h2 data-reveal style="max-width:16ch;--d:.08s">Do primeiro contato ao seu negócio no ar</h2>
       </div>
       <ol class="steps" data-steps>
@@ -435,13 +541,13 @@ footer .brand{font-size:1.1rem;color:var(--ink)}
   <section id="perguntas" style="border-top:1px solid var(--rule)">
     <div class="wrap split">
       <div class="sticky sechead">
-        <p class="eyebrow mono" data-reveal data-scramble>04 / Dúvidas</p>
+        <p class="eyebrow mono" data-reveal data-scramble>05 / Dúvidas</p>
         <h2 data-reveal style="--d:.08s">Perguntas frequentes</h2>
       </div>
       <dl class="qa">
         <div data-reveal><dt>O que é a auditoria grátis?</dt><dd>Uma análise do seu Perfil do Google que mostra o que falta para o cliente encontrar e escolher o seu negócio. Você recebe o resultado pelo WhatsApp, sem compromisso.</dd></div>
         <div data-reveal style="--d:.06s"><dt>Preciso pagar mensalidade?</dt><dd>Não. Todos os serviços são pagamento único. No cardápio digital e no site de uma página, você pode escolher a manutenção de R$ 49,90 por mês para atualizações e suporte, mas ela é opcional: sem ela, o seu site ou cardápio continua no ar e funcionando normalmente.</dd></div>
-        <div data-reveal style="--d:.12s"><dt>Posso contratar só um serviço?</dt><dd>Pode. Cada serviço funciona sozinho, e você adiciona os outros quando fizer sentido.</dd></div>
+        <div data-reveal style="--d:.12s"><dt>Posso contratar só um serviço?</dt><dd>Pode. Cada serviço funciona sozinho, e você adiciona os outros quando fizer sentido. Se quiser a otimização do Perfil, o bio site e a placa de avaliação, o Kit Comércio no Mapa sai por R$ 549,90 em vez de R$ 658,70.</dd></div>
         <div data-reveal style="--d:.18s"><dt>Como funciona o pagamento?</dt><dd>Combinamos a forma de pagamento pelo WhatsApp, antes de começar qualquer serviço.</dd></div>
       </dl>
     </div>
